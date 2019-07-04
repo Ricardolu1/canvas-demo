@@ -8,7 +8,7 @@
     <title>我的画板</title>
     <style>
       #canvas {
-        background: gray;
+        background: green;
         height: 100vh;
         position: relative;
       }
@@ -25,9 +25,11 @@
 
   <script>
     var div = document.getElementById("canvas")
+    var painting=false
 
     //按下去鼠标
     div.onmousedown = function(a) {
+      painting=true
       var x = a.clientX
       var y = a.clientY
       var divA = document.createElement("div")
@@ -38,15 +40,22 @@
 
     //动鼠标
     div.onmousemove = function(a) {
-      var x = a.clientX
+      if (painting) {
+        var x = a.clientX
       var y = a.clientY
       var divA = document.createElement("div")
       divA.style =
         "width:6px; height:6px; background:balck; border-radius=3px; position:absolute;" +"left: " +(x - 3) +"px;" +"top: " +(y - 3) +"px;"
       div.appendChild(divA)
+      }else{
+
+      }
     }
+      
 
     //松开鼠标
-    div.onmouseup = function(a) {}
+    div.onmouseup = function(a) {
+      painting=false
+    }
   </script>
 </html>
