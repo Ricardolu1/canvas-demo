@@ -8,7 +8,7 @@
     <title>我的画板</title>
     <style>
       #canvas {
-        background: ;
+        background: green;
         height: 100vh;
         position: relative;
       }
@@ -25,16 +25,16 @@
 
   <script>
     var div = document.getElementById("canvas")
-    var painting=false
+    var painting = false
 
     //按下去鼠标
     div.onmousedown = function(a) {
-      painting=true
+      painting = true
       var x = a.clientX
       var y = a.clientY
       var divA = document.createElement("div")
       divA.style =
-        "width:6px; height:6px; background:black; border-radius=3px; position:absolute;" +"left: " +(x - 3) +"px;" +"top: " +(y - 3) +"px;"
+        "width:6px; height:6px; background:black; border-radius=3px; position:absolute;" + "left: " +(x - 3) +"px;" + "top: " + (y- 3) +"px;"
       div.appendChild(divA)
     }
 
@@ -42,20 +42,18 @@
     div.onmousemove = function(a) {
       if (painting) {
         var x = a.clientX
-      var y = a.clientY
-      var divA = document.createElement("div")
-      divA.style =
-        "width:6px; height:6px; background:balck; border-radius=3px; position:absolute;" +"left: " +(x - 3) +"px;" +"top: " +(y - 3) +"px;"
-      div.appendChild(divA)
-      }else{
-
+        var y = a.clientY
+        var divA = document.createElement("div")
+        divA.style =
+          "width:6px; height:6px; background:balck;" + "border-radius=3px; position:absolute;" + "left: " +(x - 3) +"px;" +"top: " +(y - 3) +"px;"
+        div.appendChild(divA)
+      } else {
       }
     }
-      
 
     //松开鼠标
     div.onmouseup = function(a) {
-      painting=false
+      painting = false
     }
   </script>
 </html>
